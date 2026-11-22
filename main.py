@@ -1,24 +1,24 @@
-"""Write the make.fun entry: a plan an AI agent can carry out itself to
-turn $100 into the most money in 30 days.
+"""Write a 30-day plan for turning $100 into the most money.
 
-The plan text is embedded below as a single deterministic string. Running
-this module writes it to /output/entry.txt (or $MAKEFUN_OUTPUT_DIR).
+The plan sells AI product-photo packs to Etsy sellers: a concrete
+service, named buyers, a named price, and a day-one action. The
+program writes the plan text to /output/entry.txt, deterministically.
 """
 
 import os
 
 PLAN = (
-    "Sell $79 Google Profile fixes to US dentists. Day 1: find 200 "
-    "dentists on Google Maps with bad profiles and email each a 48-hour "
-    "fix offer. Do it free; send proof screenshots. 1 sale per 50 emails "
-    "= ~$950 by day 30. Edge: dentists already pay for visibility; every "
-    "fix is public."
+    "Sell $29 AI product-photo packs to Etsy sellers. "
+    "Day 1: message 30 shops with weak photos, a free before/after "
+    "of their best listing plus a $29 order link: 5 photos in 24 hours. "
+    "Spend $60 promoting it, $40 on an AI upscaler. "
+    "12 orders = $348 revenue, ~$250 net by day 30."
 )
 
 
 def main() -> None:
     text = PLAN
-    assert 1 <= len(text) <= 280, f"entry is {len(text)} codepoints"
+    assert 1 <= len(text) <= 280, f"entry must be 1-280 codepoints, got {len(text)}"
     assert text.strip(), "entry must not be only whitespace"
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
